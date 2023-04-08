@@ -1,0 +1,28 @@
+/*The sum of the first n odd numbers is always equal to n^2. Write a C program to verify this fact using a "for" loop.?*/
+#include <stdio.h> 
+ 
+int oddFactorial( unsigned long max ); 
+ 
+/** 
+ *	Calculate the factorial of 17 using only odd numbers 
+ */ 
+int main() { 
+    printf( "%u", oddFactorial( 17 ) ); 
+    return 0; 
+} 
+ 
+int oddFactorial( unsigned long max ) { 
+    /* 
+     * 0! or 1! is 1 
+     */ 
+    if ( max <= 1 ) { 
+        return 1; 
+    } 
+    /* 
+     *  If the number is even get the first odd before 
+     */ 
+    if ( max % 2 == 0 ) { 
+        max--; 
+    } 
+    return max*oddFactorial( max-2 ); 
+} 
